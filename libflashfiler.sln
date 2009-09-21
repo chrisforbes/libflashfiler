@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libflashfiler", "libflashfiler\libflashfiler.vcproj", "{34A50B23-851B-4F06-B7AF-443C38A0D89D}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "flashfilerdemo", "flashfilerdemo\flashfilerdemo.vcproj", "{AC551B51-D3B3-48DC-8E1C-2B648EC9E4AB}"
+	ProjectSection(ProjectDependencies) = postProject
+		{34A50B23-851B-4F06-B7AF-443C38A0D89D} = {34A50B23-851B-4F06-B7AF-443C38A0D89D}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{34A50B23-851B-4F06-B7AF-443C38A0D89D}.Debug|Win32.ActiveCfg = Debug|Win32
+		{34A50B23-851B-4F06-B7AF-443C38A0D89D}.Debug|Win32.Build.0 = Debug|Win32
+		{34A50B23-851B-4F06-B7AF-443C38A0D89D}.Release|Win32.ActiveCfg = Release|Win32
+		{34A50B23-851B-4F06-B7AF-443C38A0D89D}.Release|Win32.Build.0 = Release|Win32
+		{AC551B51-D3B3-48DC-8E1C-2B648EC9E4AB}.Debug|Win32.ActiveCfg = Debug|Win32
+		{AC551B51-D3B3-48DC-8E1C-2B648EC9E4AB}.Debug|Win32.Build.0 = Debug|Win32
+		{AC551B51-D3B3-48DC-8E1C-2B648EC9E4AB}.Release|Win32.ActiveCfg = Release|Win32
+		{AC551B51-D3B3-48DC-8E1C-2B648EC9E4AB}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
