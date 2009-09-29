@@ -102,14 +102,20 @@ VARIANT ff_cur_get( struct ff_cursor * cur, char const * field )
 		v.vt = VT_BOOL;		v.boolVal = ~(VARIANT_BOOL)q[1];	break;
 	case 1:
 		v.vt = VT_I1;		v.bVal = (BYTE)q[1];				break;
-	case 8: case 9:
+	case 5: case 8: case 9:
 		v.vt = VT_I4;		v.lVal = *(int const *)(q+1);		break;
 	case 11:
 		if (e->length == 4) { v.vt = VT_R4;	v.fltVal = *(float const *)(q+1); break; }
 		if (e->length == 8) { v.vt = VT_R8; v.dblVal = *(double const *)(q+1); break; }
 		break;
+	case 14:		/* it's possible this isn't a very good solution. maybe VT_DECIMAL or VT_CY? */
+		if (e->length == 8) { v.vt = VT_R8; v.dblVal = *(__int64 const *)(q+1) / 10000.0f; break; }	
+		break;
 	case 17:
 		if (e->length == 8) { v.vt = VT_DATE; v.date = (DATE) *(double const *)(q+1); break; }
+		break;
+	case 19:
+		if (e->length == 8) { v = ff_blob_read( cur->db, *(__int64 const *)(q+1) ); break; }
 		break;
 	case 45:
 	case 46:		/* todo: oem charset vs utf-8 vs 8859-1; yes, this sucks. */
@@ -129,6 +135,19 @@ VARIANT ff_cur_get( struct ff_cursor * cur, char const * field )
 				v.bstrVal = SysAllocString( L"" );
 			}
 			
+		} break;
+	case 48:
+		{
+			int len = strlen( q+1 );
+			wchar_t * wsz = alloca( (len+1) * sizeof(wchar_t) );
+			mbstowcs( wsz, q+1, len+1 );
+			v.vt = VT_BSTR;
+			v.bstrVal = SysAllocString( wsz );
+		} break;
+	case 49:
+		{
+			v.vt = VT_BSTR;
+			v.bstrVal = SysAllocString( (wchar_t const *) (q+1) );
 		} break;
 	}
 

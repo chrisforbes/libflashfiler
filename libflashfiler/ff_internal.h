@@ -85,6 +85,50 @@ struct ff_header_stream_block
 	DWORD owningStream;
 };
 
+struct ff_header_blob_block
+{
+	struct ff_header_common h;
+	DWORD assignedSegCount;
+	DWORD reserved[2];
+};
+
+struct ff_header_blob
+{
+	unsigned char signature;
+	unsigned char reserved;
+	unsigned short segmentLength;
+	DWORD blobLength;
+	DWORD segCount;
+	unsigned __int64 firstLookupSegment;
+};
+
+struct ff_blob_lookup_entry
+{
+	unsigned __int64 segmentOffset;
+	DWORD contentLength;
+};
+
+struct ff_blob_segment
+{
+	unsigned char signature;		// 'C' = content; 'D' = deleted; 'L' = lookup
+	unsigned char reserved;
+	unsigned short segmentLength;
+
+#pragma warning( disable: 4201 ) /* nameless union */
+	union {
+		struct {
+			unsigned __int64 parent;
+			unsigned __int64 nextSegment;
+		} segment;
+
+		struct {
+			unsigned __int64 nextSegment;
+			unsigned __int64 prevSegment;
+		} deleted;
+	};
+#pragma warning( default: 4201 )
+};
+
 struct ff_dictent
 {
 	char name[64];
@@ -118,6 +162,8 @@ void ff_stream_skipstring( struct ff_stream * s );
 void ff_stream_skipbin( struct ff_stream * s, int n );
 #define ff_stream_skipint ff_stream_readint
 #define ff_stream_skipbool ff_stream_readbool
+
+VARIANT ff_blob_read( struct ff_db * db, __int64 n );
 
 #pragma pack( pop )
 

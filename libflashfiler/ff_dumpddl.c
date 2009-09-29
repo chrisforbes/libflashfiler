@@ -46,6 +46,7 @@ void ff_dumpddl( struct ff_db * db, FILE * f, char const * dumpTableName )
 				impl_vt( VT_BOOL, "%s", v.boolVal ? "false" : "true" );
 				impl_vt( VT_I1, "'%c'", v.bVal );
 				impl_vt( VT_I4, "%d", v.lVal );
+				impl_vt( VT_I8, "%I64d", v.llVal );
 				impl_vt( VT_R4, "%g", v.fltVal );
 				impl_vt( VT_R8, "%g", v.dblVal );
 				
