@@ -1,0 +1,59 @@
+-- dumping data dictionary for `test_blobs`
+-- records: 10 fields: 4 indexes: 1 blocksize: 0x1000
+CREATE TABLE [test_blobs] (
+	 [Title] VARCHAR(26),
+	 [Image] $type(22),
+	 [Size] INT,
+	 [Type] VARCHAR(5),
+);
+-- dumping content for `test_blobs`
+INSERT INTO [test_blobs] VALUES(
+	'Barcode',
+	$(val 22 0x1a 0x8), 
+	45254,
+	'Bmp',
+INSERT INTO [test_blobs] VALUES(
+	'Genius',
+	$(val 22 0x1a 0x8), 
+	10628,
+	'Jpeg',
+INSERT INTO [test_blobs] VALUES(
+	'Flash',
+	$(val 22 0x1a 0x8), 
+	35940,
+	'Bmp',
+INSERT INTO [test_blobs] VALUES(
+	'London',
+	$(val 22 0x1a 0x8), 
+	44051,
+	'Jpeg',
+INSERT INTO [test_blobs] VALUES(
+	'Ouch',
+	$(val 22 0x1a 0x8), 
+	42358,
+	'Bmp',
+INSERT INTO [test_blobs] VALUES(
+	'Caps',
+	$(val 22 0x1a 0x8), 
+	22624,
+	'Jpeg',
+INSERT INTO [test_blobs] VALUES(
+	'Thinktank',
+	$(val 22 0x1a 0x8), 
+	22716,
+	'Jpeg',
+INSERT INTO [test_blobs] VALUES(
+	'Mt. Blanc',
+	$(val 22 0x1a 0x8), 
+	6646,
+	'Jpeg',
+INSERT INTO [test_blobs] VALUES(
+	'Fun',
+	$(val 22 0x1a 0x8), 
+	21164,
+	'Jpeg',
+INSERT INTO [test_blobs] VALUES(
+	'Balloon',
+	$(val 22 0x1a 0x8), 
+	175590,
+	'Bmp',

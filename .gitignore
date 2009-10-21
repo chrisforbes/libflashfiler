@@ -5,3 +5,4 @@ libflashfiler/Debug
 libflashfiler/*.user
 flashfilerdemo/Debug
 flashfilerdemo/*.user
+data/*.tmp
