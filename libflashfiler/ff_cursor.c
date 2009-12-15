@@ -72,8 +72,11 @@ int ff_cur_next( struct ff_cursor * cur )
 {
 	while( cur->remaining_records && cur->remaining_real_records )
 	{
+		char this_trailer;
 		ff_cur_next_inner( cur );
-		if (cur->deltrailer != cur->record_base[ cur->b->recordLength ])
+
+		this_trailer = cur->record_base[ cur->b->recordLength ];
+		if (cur->deltrailer != this_trailer && cur->record_base[0] != (char)(unsigned char)0xff)
 		{
 			--cur->remaining_real_records;
 			return 1;

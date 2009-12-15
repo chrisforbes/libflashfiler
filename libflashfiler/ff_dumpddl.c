@@ -52,7 +52,7 @@ void ff_dumpddl( struct ff_db * db, FILE * f, char const * dumpTableName )
 				
 			case VT_DATE:
 				{
-					time_t t = ff_delphi_to_unixtime( v.date );
+					time_t t = ff_delphi_to_unixtime( v.date - 94 );
 					char sz[1024];
 					struct tm * tm = gmtime( &t );
 					strcpy( sz, "invalid date" );

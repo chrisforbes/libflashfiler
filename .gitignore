@@ -6,3 +6,5 @@ libflashfiler/*.user
 flashfilerdemo/Debug
 flashfilerdemo/*.user
 data/*.tmp
+data/*.sql
+*.sql
