@@ -64,6 +64,7 @@ void ff_dumpddl( struct ff_db * db, FILE * f, char const * dumpTableName )
 
 			case VT_BSTR:
 				{
+					/* todo: escape using `ff_escape_sql_string` */
 					fprintf( f, "\t'%ls'", v.bstrVal );
 					SysFreeString( v.bstrVal );
 				} break;
