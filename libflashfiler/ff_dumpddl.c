@@ -39,7 +39,7 @@ void ff_dumpddl( struct ff_db * db, FILE * f, char const * dumpTableName )
 			VARIANT v = ff_cur_get( c, e->name );
 
 #define impl_vt( vt, fmt, val )\
-		case (vt): fprintf( f, "\t" fmt ",\n", val ); break
+		case (vt): fprintf( f, "\t" fmt, val ); break
 
 			switch( v.vt )
 			{
@@ -59,21 +59,24 @@ void ff_dumpddl( struct ff_db * db, FILE * f, char const * dumpTableName )
 					if (tm) {
 					strftime( sz, sizeof(sz), "%Y-%m-%d %H:%M:%S", tm );
 					}
-					fprintf( f, "\t'%s',\n", sz);
+					fprintf( f, "\t'%s'", sz);
 				} break;
 
 			case VT_BSTR:
 				{
-					fprintf( f, "\t'%ls',\n", v.bstrVal );
+					fprintf( f, "\t'%ls'", v.bstrVal );
 					SysFreeString( v.bstrVal );
 				} break;
 
 			default:
-				fprintf( f, "\t$(val %d 0x%x 0x%x), \n", e->type, e->offset, e->length );
+				fprintf( f, "\t$(val %d 0x%x 0x%x)", e->type, e->offset, e->length );
 			}
+
+			if ( fields > 1 )
+				fprintf( f, ",\n" );
 		}
 
-		fprintf( f, ");\n" );
+		fprintf( f, "\n);\n" );
 	}
 
 	ff_cur_close( c );

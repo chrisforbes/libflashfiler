@@ -69,7 +69,7 @@ static char const * sqltype_for( struct ff_dictent * e )
 static void dumpddl_for_field( struct ff_dict * dict, struct ff_dictent * e, FILE * f )
 {
 	dict;
-	fprintf( f, "\t [%s] %s,\n", e->name, sqltype_for( e ) );
+	fprintf( f, "\t [%s] %s", e->name, sqltype_for( e ) );
 }
 
 void ff_dict_dumpddl( struct ff_dict * dict, FILE * f, char const * dumpTableName )
@@ -79,8 +79,11 @@ void ff_dict_dumpddl( struct ff_dict * dict, FILE * f, char const * dumpTableNam
 
 	fprintf( f, "CREATE TABLE [%s] (\n", dumpTableName );
 
-	while( n-- )
+	while( n-- ) {
 		dumpddl_for_field( dict, e++, f );
+		if ( n > 1 )
+			fprintf( f, ",\n" );
+	}
 
-	fprintf( f, ");\n" );
+	fprintf( f, "\n);\n" );
 }
