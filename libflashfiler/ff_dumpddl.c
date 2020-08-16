@@ -72,6 +72,8 @@ void ff_dumpddl( struct ff_db * db, FILE * f, char const * dumpTableName )
 				fprintf( f, "\t$(val %d 0x%x 0x%x), \n", e->type, e->offset, e->length );
 			}
 		}
+
+		fprintf( f, ");\n" );
 	}
 
 	ff_cur_close( c );
