@@ -3,106 +3,131 @@
 CREATE TABLE [exprods] (
 	 [ProductID] INT,
 	 [Description] VARCHAR(26),
-	 [Price] MONEY,
+	 [Price] MONEY
 );
 -- dumping content for `exprods`
 INSERT INTO [exprods] VALUES(
 	1,
 	'Book',
-	24.95,
+	24.95
+);
 INSERT INTO [exprods] VALUES(
 	2,
 	'Video',
-	12.99,
+	12.99
+);
 INSERT INTO [exprods] VALUES(
 	3,
 	'Table',
-	44,
+	44
+);
 INSERT INTO [exprods] VALUES(
 	4,
 	'Speakers',
-	210,
+	210
+);
 INSERT INTO [exprods] VALUES(
 	5,
 	'Hi Fi',
-	250,
+	250
+);
 INSERT INTO [exprods] VALUES(
 	6,
 	'Television',
-	649.99,
+	649.99
+);
 INSERT INTO [exprods] VALUES(
 	7,
 	'Radio',
-	24.5,
+	24.5
+);
 INSERT INTO [exprods] VALUES(
 	8,
 	'VCR',
-	129.95,
+	129.95
+);
 INSERT INTO [exprods] VALUES(
 	9,
 	'Magazine',
-	4.95,
+	4.95
+);
 INSERT INTO [exprods] VALUES(
 	10,
 	'Computer',
-	989.99,
+	989.99
+);
 INSERT INTO [exprods] VALUES(
 	11,
 	'Camera',
-	655.1,
+	655.1
+);
 INSERT INTO [exprods] VALUES(
 	12,
 	'Compact Disk',
-	5.45,
+	5.45
+);
 INSERT INTO [exprods] VALUES(
 	13,
 	'CD Player',
-	129.45,
+	129.45
+);
 INSERT INTO [exprods] VALUES(
 	14,
 	'Telephone',
-	45,
+	45
+);
 INSERT INTO [exprods] VALUES(
 	15,
 	'Vacuum Cleaner',
-	89.95,
+	89.95
+);
 INSERT INTO [exprods] VALUES(
 	16,
 	'Microwave Oven',
-	189.95,
+	189.95
+);
 INSERT INTO [exprods] VALUES(
 	17,
 	'Washer',
-	650.25,
+	650.25
+);
 INSERT INTO [exprods] VALUES(
 	18,
 	'Dryer',
-	525.3,
+	525.3
+);
 INSERT INTO [exprods] VALUES(
 	19,
 	'Typewriter',
-	89.95,
+	89.95
+);
 INSERT INTO [exprods] VALUES(
 	20,
 	'Sewing Machine',
-	119.99,
+	119.99
+);
 INSERT INTO [exprods] VALUES(
 	21,
 	'Stove',
-	850,
+	850
+);
 INSERT INTO [exprods] VALUES(
 	22,
 	'Dishwasher',
-	633.5,
+	633.5
+);
 INSERT INTO [exprods] VALUES(
 	23,
 	'Water Softener',
-	58.25,
+	58.25
+);
 INSERT INTO [exprods] VALUES(
 	24,
 	'Blender',
-	19.95,
+	19.95
+);
 INSERT INTO [exprods] VALUES(
 	25,
 	'Air Conditioner',
-	364.44,
+	364.44
+);
